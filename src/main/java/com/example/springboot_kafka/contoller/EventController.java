@@ -19,8 +19,10 @@ public class EventController {
 
     @GetMapping("/publish/{message}")
     public ResponseEntity<?> publishMessage(@PathVariable String message){
-    publisher.sendMessageToTopic(message);
     try {
+        for(int i=0;i<=1000;i++ ) {
+            publisher.sendMessageToTopic(message+" : "+i );
+        }
         return ResponseEntity.ok("Messaged Published Successfully!");
     }catch (Exception ex){
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

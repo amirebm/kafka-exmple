@@ -15,7 +15,7 @@ public class KafkaMessagePublisher {
 
     public void  sendMessageToTopic(String message){
 
-      CompletableFuture<SendResult<String,Object>> future= template.send("Amir-Topic",message);
+      CompletableFuture<SendResult<String,Object>> future= template.send("Amir-topic3",message);
       //*****future.get();*****//
 //        you can do simply you can do future do get API call  (the above command) from the completable future
 //        then the thread will wait for the results to come but it will definitely slow down the producer
